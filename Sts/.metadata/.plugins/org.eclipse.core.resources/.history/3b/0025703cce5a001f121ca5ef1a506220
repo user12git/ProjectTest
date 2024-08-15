@@ -1,0 +1,9 @@
+package com.app.service;
+
+import com.app.entity.Appointment;
+
+public interface AppointmentService 
+{
+	public Appointment bookAppointment(Appointment appointment);
+
+}

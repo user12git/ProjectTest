@@ -1,0 +1,46 @@
+package com.app.entity;
+
+import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "appointments")
+@NoArgsConstructor
+@Setter@Getter
+@ToString
+public class Appointment 
+{
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+    private Long id;
+
+	@Column(name="Worker_Name")
+    private String wName;
+	@Column(name="Worker_Field")
+    private String wField;
+	@Column(name="Visiting_Charge")
+    private String visitingCharge;
+	@Column(name="Address")
+    private String address;
+	@Column(name="userId")
+    private Long userId;
+	public Appointment(Long id, String wName, String wField, String visitingCharge, String address, Long userId) {
+		super();
+		this.id = id;
+		this.wName = wName;
+		this.wField = wField;
+		this.visitingCharge = visitingCharge;
+		this.address = address;
+		this.userId = userId;
+	}
+	
+	
+    
+    
+
+}

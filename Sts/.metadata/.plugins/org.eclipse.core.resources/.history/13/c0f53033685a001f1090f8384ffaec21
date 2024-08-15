@@ -1,0 +1,16 @@
+package com.app.dto;
+
+public class AppointmentDTO 
+{
+	
+	private String wName;
+	
+	private String wField;
+	
+	private String visitingCharge;
+	
+	private String address;
+	
+	private Long userId;
+
+}

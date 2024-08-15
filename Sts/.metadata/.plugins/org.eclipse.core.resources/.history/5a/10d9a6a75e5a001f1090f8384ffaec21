@@ -1,0 +1,18 @@
+package com.app.entity;
+
+import javax.persistence.*;
+
+@Entity
+public class Appointment 
+{
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String workerName;
+    private String workerField;
+    private String visitingCharge;
+    private String address;
+    private Long userId;
+
+}
