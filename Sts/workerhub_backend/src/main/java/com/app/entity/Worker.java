@@ -34,10 +34,10 @@ public class Worker extends BaseEntity{
 	
 	private Field field;
 	
-	private double rating;
+	private double exp;
 
 	public Worker(String email, String password, String name, String phone, double vcharge, String address,
-			String pincode, Field field, double rating) {
+			String pincode, Field field, double exp) {
 		super(email, password);
 		this.name = name;
 		this.phone = phone;
@@ -45,7 +45,7 @@ public class Worker extends BaseEntity{
 		this.address = address;
 		this.pincode = pincode;
 		this.field = field;
-		this.rating = rating;
+		this.exp = exp;
 	}
 
 	

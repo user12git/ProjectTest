@@ -1,4 +1,4 @@
-package com.app.controller;
+	package com.app.controller;
 
 import java.util.List;
 
@@ -91,7 +91,7 @@ public class WorkerController {
 			if(w != null) {
 				w.setPhone(worke.getPhone());
 			
-				workerServ.updateWorker(worke.getEmail(), worke.getAddress(), worke.getPincode(), worke.getPhone(), worke.getField(), worke.getRating());
+				workerServ.updateWorker(worke.getEmail(), worke.getAddress(), worke.getPincode(), worke.getPhone(), worke.getField(), worke.getExp());
 				return ResponseEntity.ok("Worker Profile Updated Successfully");
 			}
 			else

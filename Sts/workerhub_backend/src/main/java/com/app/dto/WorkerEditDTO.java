@@ -18,9 +18,9 @@ public class WorkerEditDTO {
 	private double vcharge;
 	private String pincode;
 	private Field field;
-	private double rating;
+	private double exp;
 	public WorkerEditDTO(String email, String address, String phone, double vcharge, String pincode, Field field,
-			double rating) {
+			double exp) {
 		super();
 		this.email = email;
 		this.address = address;
@@ -28,7 +28,7 @@ public class WorkerEditDTO {
 		this.vcharge = vcharge;
 		this.pincode = pincode;
 		this.field = field;
-		this.rating = rating;
+		this.exp = exp;
 	}
 	
 	

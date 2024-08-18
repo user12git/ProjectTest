@@ -2,7 +2,8 @@ package com.app.dto;
 
 import java.time.LocalDate;
 
-import com.app.entity.Role;
+import com.app.entity.User;
+import com.app.entity.Worker;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,17 +17,7 @@ import lombok.ToString;
 public class AppointmentDTO 
 {
 	
-	private String workerName;
 	
-	private String userName;
-	
-	private String uphone;
-	
-	private String wphone;
-	
-	private String workerField;
-	
-	private String visitingCharge;
 	
 	private String address;
 	
@@ -36,24 +27,21 @@ public class AppointmentDTO
 	
 	private LocalDate date;
 	
-	private Long userId;
+	private User userId;
 	
-	private Long workerId;
+	private Worker workerId;
 
-	public AppointmentDTO(String workerName, String userName, String uphone, String wphone, String workerField,
-			String visitingCharge, String address, String pincode, Long userId, Long workerId) {
+	public AppointmentDTO(String address, String pincode, String status, LocalDate date, User userId, Worker workerId) {
 		super();
-		this.workerName = workerName;
-		this.userName = userName;
-		this.uphone = uphone;
-		this.wphone = wphone;
-		this.workerField = workerField;
-		this.visitingCharge = visitingCharge;
 		this.address = address;
 		this.pincode = pincode;
-		this.date = LocalDate.now();
+		this.status = status;
+		this.date = date;
 		this.userId = userId;
 		this.workerId = workerId;
+	}
+
+	
 	}
 
 	
@@ -62,4 +50,4 @@ public class AppointmentDTO
 	
 	
 
-}
+

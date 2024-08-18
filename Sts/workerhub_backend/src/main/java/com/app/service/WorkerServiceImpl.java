@@ -46,7 +46,7 @@ public class WorkerServiceImpl implements WorkerService {
 	}
 
 	@Override
-	public void updateWorker(String email, String address, String pincode, String phone, Field field, double rating) {
+	public void updateWorker(String email, String address, String pincode, String phone, Field field, double exp) {
 		// TODO Auto-generated method stub
 		Worker w = getWorkerByEmail(email);
 		if(w != null)
@@ -55,7 +55,7 @@ public class WorkerServiceImpl implements WorkerService {
 			w.setField(field);
 			w.setAddress(phone);
 			w.setPincode(pincode);
-			w.setRating(rating);
+			w.setExp(exp);
 		}
 	}
 

@@ -16,15 +16,11 @@ public class UserLoginDTO {
 	
 	private String password;
 
-	public UserLoginDTO(String email, String passworld) {
+	public UserLoginDTO(String email, String password) {
 		super();
 		this.email = email;
-		this.password = passworld;
-	}
-	
-	
-	
-	
+		this.password = password;
+	}	
 
 }
 

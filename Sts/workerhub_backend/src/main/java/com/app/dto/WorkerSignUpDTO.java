@@ -27,9 +27,11 @@ public class WorkerSignUpDTO {
 	private String pincode;
 	
 	private Field field;
+	
+	private double exp;
 
 	public WorkerSignUpDTO(String email, String password, String name, String phone, double vcharge, String address,
-			String pincode, Field field) {
+			String pincode, Field field,double exp) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -39,6 +41,7 @@ public class WorkerSignUpDTO {
 		this.address = address;
 		this.pincode = pincode;
 		this.field = field;
+		this.exp=exp;
 	}
 
 	

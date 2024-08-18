@@ -6,9 +6,6 @@ import com.app.entity.Appointment;
 
 public interface AppointmentService 
 {
-	public Appointment bookAppointment(Appointment appointment);
-
-	//List<Appointment> getAppointmentsByUserId(Long userId);
 	
 	public List<Appointment> getAllAppointments();
 	
@@ -18,6 +15,6 @@ public interface AppointmentService
 	
 	public Appointment updateAppointmentStatus(Long appointmentId, String status);
 	
-	
+	public Appointment bookAppointment(Appointment appointment, Long userId, Long workerId);
 
 }

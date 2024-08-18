@@ -22,9 +22,9 @@ public class WorkerProfileDTO
 	private double vcharge;
 	private String pincode;
 	private Field field;
-	private double rating;
+	private double exp;
 	public WorkerProfileDTO(Long id, String email, String name, String address, String phone,double vcharge, String pincode,
-			Field field, double rating) {
+			Field field, double exp) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -34,10 +34,10 @@ public class WorkerProfileDTO
 		this.vcharge=vcharge;
 		this.pincode = pincode;
 		this.field = field;
-		this.rating = rating;
+		this.exp = exp;
 	}
 	public WorkerProfileDTO(String email, String name, String address, String phone,double vcharge, String pincode, Field field,
-			double rating) {
+			double exp) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -46,7 +46,7 @@ public class WorkerProfileDTO
 		this.vcharge=vcharge;
 		this.pincode = pincode;
 		this.field = field;
-		this.rating = rating;
+		this.exp = exp;
 	}
 	
 	

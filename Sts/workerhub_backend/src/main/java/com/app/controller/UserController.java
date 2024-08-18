@@ -1,18 +1,12 @@
 package com.app.controller;
-import java.util.List;
-
-
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,13 +15,10 @@ import com.app.dto.UserChangePassDTO;
 import com.app.dto.UserDeleteDTO;
 import com.app.dto.UserEditDTO;
 import com.app.dto.UserLoginDTO;
-import com.app.dto.UserProfileDTO;
 import com.app.dto.UserSignUpDTO;
 import com.app.entity.User;
-import com.app.repository.UserRepository;
 import com.app.service.UserService;
 import com.app.service.WorkerService;
-import com.app.util.JwtTokenUtil;
 
 @RequestMapping("/user")
 @RestController
@@ -40,8 +31,7 @@ public class UserController {
   @Autowired
   private ModelMapper modelmapper;
   
-  @Autowired
-  private JwtTokenUtil jwtTokenUtil;
+ 
   
   @Autowired
   private WorkerService workerServ;
@@ -90,8 +80,7 @@ public class UserController {
           User u = userServ.getUser(user.getEmail(), user.getPassword());
           System.out.println(u);
           if (u != null) {
-              String token = jwtTokenUtil.generateToken(u.getEmail());
-              UserProfileDTO userProfileDTO = modelmapper.map(u, UserProfileDTO.class);
+             
               return ResponseEntity.ok(u)    ;        //(new JwtResponse(token, userProfileDTO));
           } else {
               return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
@@ -100,7 +89,7 @@ public class UserController {
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to authenticate user");
       }
   }
-  @SuppressWarnings("unused")
+
   @PostMapping("/edit")
   public ResponseEntity<?> updateUser(@RequestBody UserEditDTO userEditDTO) {
       System.out.println("HIii");
@@ -127,7 +116,9 @@ public class UserController {
   @PostMapping("/changepass")
   public ResponseEntity<?> changePass(@RequestBody UserChangePassDTO user){
 	  try {
+		  System.out.println(user);
 		  User u = userServ.getUserByEmail(user.getEmail());
+		  System.out.println(u);
 		  if (u != null && (u.getPassword().equals( user.getPassword()))) {
 			 userServ.updatePass(u.getEmail(), user.getNewPass());
 			 return ResponseEntity.ok("User Password updated successfully");
@@ -151,7 +142,7 @@ public class UserController {
 			  userServ.deleteUser(u);
 			  return ResponseEntity.ok("User was deleted");
 		  }else
-			  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+			  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid password");
 	  }
 	  catch (Exception e) {
 		  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete user");
